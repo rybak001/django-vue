@@ -22,7 +22,8 @@
           <h2 class="title is-2 has-text-centered">Blog Posts:</h2>
         </div>
         <div class="column is-12">
-          <Postbox v-for="post in posts" :key="post.pk" :post="post" />
+          <Postbox v-for="post in posts" :key="post.pk" :post="post" 
+          @post-deleted="handlePostDeleted"/>
         </div>
       </div>
     </div>
@@ -56,6 +57,10 @@ export default {
         .catch(error => {
           console.log(error)
         })
+    },
+    handlePostDeleted(pk) {
+      // Remove the deleted post from the posts array
+      this.posts = this.posts.filter((post) => post.pk !== pk);
     }
   }
 }

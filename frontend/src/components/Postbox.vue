@@ -2,10 +2,10 @@
     <div class="box post-box">
       <div class="post-content">
         <div class="action-icons">
-          <div class="edit-icon">
+          <div class="edit-icon" @click="editPost(post.pk)">
             <i class="fas fa-pencil-alt"></i>
           </div>
-          <div class="delete-icon">
+          <div class="delete-icon" @click="deletePost(post.pk)">
             <i class="fas fa-times"></i>
           </div>
         </div>
@@ -18,14 +18,34 @@
     </div>
   </template>
   
-<script>
+  <script>
+  import axios from 'axios';
+  
   export default {
     name: 'Postbox',
     props: {
-      post: Object
-    }
-  }
-</script>
+      post: Object,
+    },
+    methods: {
+      editPost(pk) {
+        // Handle the edit functionality
+      },
+      deletePost(pk) {
+        axios
+          .delete(`/api/v1/posts/delete/${pk}`)
+          .then((response) => {
+            console.log(response.data.message);
+            this.$emit('post-deleted', pk);
+            // Handle the successful deletion
+          })
+          .catch((error) => {
+            console.log(error);
+            // Handle the error
+          });
+      },
+    },
+  };
+  </script>
   
 <style scoped>
   .box.post-box {

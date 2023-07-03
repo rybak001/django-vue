@@ -1,6 +1,7 @@
 from django.db.models import Q
 from django.shortcuts import Http404
-
+from django.shortcuts import get_object_or_404
+from django.http import JsonResponse
 from rest_framework.views import APIView
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
@@ -37,3 +38,13 @@ def search (request):
         return Response(serializer.data)
     else:
         return Response({"posts": []})
+    
+@api_view(['DELETE'])
+def delete(request, pk):
+
+    if Post.objects.get(pk=pk):
+        post = Post.objects.get(pk=pk)
+        post.delete()
+        return JsonResponse({'message': 'Delete successful'})
+    else:
+        return JsonResponse({'message': 'Delete failed'})
