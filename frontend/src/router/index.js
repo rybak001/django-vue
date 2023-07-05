@@ -2,6 +2,9 @@ import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 import DetailedView from '../views/DetailedView.vue'
 import Search from '../views/Search.vue'
+import LogIn from '../views/LogIn.vue'
+import AddPost from '../views/AddPost.vue'
+import LogOut from '../views/LogOut.vue'
 
 const routes = [
   {
@@ -13,6 +16,21 @@ const routes = [
   path: '/search',
   name: 'search',
   component: Search
+  },
+  {
+  path: '/token/login',
+  name: 'login',
+  component: LogIn
+  },
+  {
+  path: '/token/logout',
+  name: 'logout',
+  component: LogOut
+  },
+  {
+    path: '/posts/add-post',
+    name: 'addpost',
+    component: AddPost
   },
   {
     path: '/about',

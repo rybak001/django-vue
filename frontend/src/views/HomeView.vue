@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    <section class="hero is-medium is-dark mb-6">
+    <section class="hero is-medium is-dark mb-6" style="background-image: url(https://www.chiefsalesleader.com/wp-content/uploads/2018/03/Text-Book-Background.png); background-size: cover; background-position: center;">
       <div class="hero-body has-text-centered">
         <div class="container">
           <p class="title mb-6">
@@ -67,26 +67,26 @@ export default {
 </script>
 
 <style scoped>
-.home {
-  padding: 20px;
-}
+  .home {
+    padding: 20px;
+  }
 
-.hero.is-medium {
-  padding: 2rem;
-}
+  .hero.is-medium {
+    padding: 2rem;
+  }
 
-.title.is-2 {
-  margin-top: 10px;
-}
+  .title.is-2 {
+    margin-top: 10px;
+  }
 
-.subtitle.is-5 {
-  margin-top: 10px;
-  color: #888;
-}
+  .subtitle.is-5 {
+    margin-top: 10px;
+    color: #888;
+  }
 
-.container {
-  width: 100%;
-  max-width: 960px;
-  margin: 0 auto;
-}
+  .container {
+    width: 100%;
+    max-width: 960px;
+    margin: 0 auto;
+  }
 </style>
